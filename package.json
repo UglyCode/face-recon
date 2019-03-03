@@ -2,7 +2,7 @@
   "name": "face-recon",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://uglycode.github.io/face-recon/",
+  "homepage": "https://uglycode.github.io/face-recon",
   "dependencies": {
     "clarifai": "^2.9.0",
     "clarify": "^2.1.0",
