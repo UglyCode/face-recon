@@ -9,7 +9,7 @@ import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Particles from 'react-particles-js';
 
-const SERVER = 'https://face-recon-backend.herokuapp.com';
+const SERVER = 'http://localhost:3001'; //'https://face-recon-backend.herokuapp.com';
 
 const particlesOptions = {
     particles: {
