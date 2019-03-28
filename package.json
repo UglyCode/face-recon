@@ -4,13 +4,15 @@
   "private": true,
   "homepage": "https://uglycode.github.io/face-recon",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "clarifai": "^2.9.0",
     "clarify": "^2.1.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-particles-js": "^2.4.2",
-    "react-scripts": "2.1.5",
+    "react-scripts": "^2.1.8",
     "react-tilt": "^0.1.4",
+    "reactstrap": "^7.1.0",
     "tachyons": "^4.11.1"
   },
   "scripts": {
