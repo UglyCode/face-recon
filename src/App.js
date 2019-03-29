@@ -8,6 +8,8 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Particles from 'react-particles-js';
+import Modal from './components/Modal/Modal';
+import Profile from './components/Profile/Profile';
 
 const SERVER = 'http://localhost:3001'; //'https://face-recon-backend.herokuapp.com';
 
@@ -34,6 +36,7 @@ const initilalState = {
         boundingBoxes: [],
         route: 'signIn',
         isSignedIn: false,
+        isProfileOpen: false,
         user: {
             id: '',
             name: '',
@@ -113,14 +116,27 @@ class App extends Component {
         this.setState({route: route});
     };
 
+    toggleProfile = () =>{
+      this.setState(prevState => ({
+          ...prevState,
+          isProfileOpen: !prevState.isProfileOpen
+          }))
+    };
+
     render() {
-        const {isSignedIn, input, boundingBoxes, route} = this.state;
+        const {isSignedIn, input, boundingBoxes, route, isProfileOpen} = this.state;
         return (
           <div className="App">
               <Particles className='particles'
                   params={particlesOptions}
               />
-              <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}/>
+              <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}
+              toggleProfile={this.toggleProfile}/>
+              {isProfileOpen &&
+              <Modal>
+                  <Profile isProfileOPen={isProfileOpen} toggleProfile={this.toggleProfile}/>
+              </Modal>
+              }
               {route === 'home'
                   ? <div className='flex'>
                       <div className=' w-10'>
