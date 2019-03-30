@@ -14,33 +14,36 @@ const Profile = ({isProfileOpen, toggleProfile})=>{
                         <h4>{'Images recon: 11'}</h4>
                         <p>{'Mambered: June'}</p>
                         <hr />
-                            <div className="mt3">
-                                <input
-                                    className="pa2 b--black-10 w-100"
-                                    type="text"
-                                    name="user-name"
-                                    id="user-name"
-                                    placeholder="Anton"
-                                ></input>
-                            </div>
-                            <div className="mt3">
-                                <input
-                                    className="pa2 b--black-10 w-100"
-                                    type="text"
-                                    name="user-pet"
-                                    id="user-pet"
-                                    placeholder="cute kitty"
-                                ></input>
-                            </div>
-                            <div className="mv3">
-                                <input
-                                    className="b pa2 b--black-10 w-100"
-                                    type="number"
-                                    name="user-age"
-                                    id="user-age"
-                                    placeholder="29"
-                                ></input>
-                            </div>
+                    <div className="mt3">
+                        <label htmlFor="user-name">Name:</label>
+                        <input
+                            className="pa2 b--black-10 w-100"
+                            type="text"
+                            name="user-name"
+                            id="user-name"
+                            placeholder="Anton"
+                        ></input>
+                    </div>
+                    <div className="mv3">
+                        <label htmlFor="user-age">Age:</label>
+                        <input
+                            className="b pa2 b--black-10 w-100"
+                            type="number"
+                            name="user-age"
+                            id="user-age"
+                            placeholder="29"
+                        ></input>
+                    </div>
+                    <div className="mt3">
+                        <label htmlFor="user-pet">Pet:</label>
+                        <input
+                            className="pa2 b--black-10 w-100"
+                            type="text"
+                            name="user-pet"
+                            id="user-pet"
+                            placeholder="cute kitty"
+                        ></input>
+                    </div>
                     <div className='mt4' style={{display: 'flex', justifyContent: 'space-evenly'}}>
                         <button className={'b pa2 pointer grow hover-white w-40 bg-light-green b--black-30'}>
                             Save
