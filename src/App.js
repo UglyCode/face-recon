@@ -53,6 +53,25 @@ class App extends Component {
         this.state = initilalState;
     }
 
+    componentDidMount() {
+        const token = window.sessionStorage.getItem('token');
+        if (token){
+            fetch(`${SERVER}/signIn`, {
+                method: 'POST',
+                headers : {
+                    'Content-type': 'application/json',
+                    'Authorization': token
+                }
+            })
+                .then(res=>res.json())
+                .then(data =>{
+                if(data && data.id){
+                    console.log('success');
+                }
+            })
+        }
+    }
+
     onInputChange = (event) => {
         this.setState({input: event.target.value});
     };
