@@ -7,7 +7,7 @@ const FaceRecognition = ({imgLink, imgBoxes}) =>{
             <div style={{width: '500px', position: 'relative'}}>
                 <img id='inputImg' alt='result will appear here' src={imgLink} style={{width: '100%', height: 'auto'}}/>
                 {
-                    imgBoxes.map((box)=> <BoundingBox boxParams={box}/>)
+                    imgBoxes.map((box, boxIndex)=> <BoundingBox boxParams={box} key={boxIndex}/>)
                 }
             </div>
         </div>

@@ -66,7 +66,20 @@ class App extends Component {
                 .then(res=>res.json())
                 .then(data =>{
                 if(data && data.id){
-                    console.log('success');
+                    fetch(`${SERVER}/profile/${data.id}`, {
+                        method: 'GET',
+                        headers : {
+                            'Content-type': 'application/json',
+                            'Authorization': token
+                        }
+                    })
+                        .then(res => res.json())
+                        .then(user => {
+                            if (user && user.id){
+                                this.userUpdate(user);
+                                this.onRouteChange('home');
+                            }
+                    })
                 }
             })
         }
@@ -79,7 +92,10 @@ class App extends Component {
     onSubmit = () => {
         fetch(`${SERVER}/image`, {
             method: 'post',
-            headers: {'content-type': 'application/json'},
+            headers: {
+                'Content-type': 'application/json',
+                'Authorization': window.sessionStorage.getItem('token')
+            },
             body: JSON.stringify({
                 input: this.state.input
             })
@@ -88,7 +104,10 @@ class App extends Component {
             .then((response) => {
                 fetch(`${SERVER}/image`, {
                     method: 'put',
-                    headers: {'content-type': 'application/json'},
+                    headers: {
+                        'Content-type': 'application/json',
+                        'Authorization': window.sessionStorage.getItem('token')
+                    },
                     body: JSON.stringify({
                         id: this.state.user.id
                     })

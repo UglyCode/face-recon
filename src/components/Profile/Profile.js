@@ -31,11 +31,16 @@ class Profile extends React.Component {
     onProfileSubmit = (data) => {
         fetch(`http://localhost:3001/profile/${this.props.user.id}`, {
             method: 'POST',
-            headers: {'Content-type' : 'application/json'},
+            headers : {
+                'Content-type': 'application/json',
+                'Authorization': window.sessionStorage.getItem('token')
+            },
             body: JSON.stringify({formInput: data})
         }).then(resp => {
-            this.props.toggleProfile();
-            this.props.userUpdate({...this.props.user, ...data});
+            if (resp.status === 200 || resp.status === 304){
+                this.props.toggleProfile();
+                this.props.userUpdate({...this.props.user, ...data});
+            }
         }).catch( err => console.log);
 
     };
