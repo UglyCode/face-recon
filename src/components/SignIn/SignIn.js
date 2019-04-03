@@ -36,6 +36,7 @@ class SignIn extends React.Component {
             .then(data => {
                if (data.userId && data.success === 'true') {
                    this.saveAuthToken(data.token);
+                   //TODO implement DRY throughout all prject. It's a good place to start.
                    fetch(`${this.props.server}/profile/${data.userId}`, {
                            method: 'GET',
                            headers : {
